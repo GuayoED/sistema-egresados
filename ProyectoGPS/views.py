@@ -4,18 +4,18 @@ from django.shortcuts import render, HttpResponse
 
 def home(request):
 
-    return HttpResponse("Home")
+    return render(request, "ProyectoGPS/home.html")
 
 
 def egresados(request):
 
-    return HttpResponse("Egresados")
+    return render(request, "ProyectoGPS/egresados.html")
 
 
 def busqueda(request):
 
-    return HttpResponse("Busqueda")
+    return render(request, "ProyectoGPS/busqueda.html")
 
 def contacto(request):
 
-    return HttpResponse("Contacto")
+    return render(request, "ProyectoGPS/contacto.html")
