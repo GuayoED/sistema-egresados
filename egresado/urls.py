@@ -16,13 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from ProyectoGPS.views import  EgresadosDetalle , EgresadosCrear, EgresadosActualizar, EgresadosEliminar
 from ProyectoGPS import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name="Home"),
-    path('egresados', views.egresados, name="Egresados"),
-    path('busqueda', views.busqueda, name="Busqueda"),
-    path('contacto', views.contacto, name="Contacto"),
+    path('egresados/', views.EgresadosListado.as_view(template_name = 'ProyectoGPS/index.html'), name='leer'),
+    path('egresados/detalle/<int:pk>', EgresadosDetalle.as_view(template_name= 'ProyectoGPS/detalle.html'), name='detalles'),
+    path('egresados/crear', EgresadosCrear.as_view(template_name= 'ProyectoGPS/crear.html'), name='crear'),
+    path('egresados/editar/<int:pk>', EgresadosActualizar.as_view(template_name= 'egresados/actualizar.html'), name='actualizar'),
+    path('egresados/elminar/<int:pk>', EgresadosEliminar.as_view(), name='eliminar'),
+
 
 ]
