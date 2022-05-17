@@ -7,7 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 #Importamos el modelo 
 
-from .models import Egresados
+from .models import Egresados, Educacion, Profesional
 
 # Nos sirve para redireccionar despues de una acción revertiendo patrones de expresiones regulares 
 from django.urls import reverse
@@ -21,10 +21,16 @@ from django.contrib.messages.views import SuccessMessageMixin
 # Habilitamos los formularios en Django
 from django import forms
 
+from itertools import chain
+
+
 # Create your views here.
 
 class EgresadosListado(ListView):
     queryset = Egresados.objects.all()
+    queryset1 = Profesional.objects.all()
+    egre = chain(queryset, queryset1)
+   
 
 
 class EgresadosDetalle(DetailView):
@@ -36,6 +42,15 @@ class EgresadosCrear(SuccessMessageMixin, CreateView):
     form = Egresados
     fields = "__all__"
     success_message = 'Egreasdo creado correctamente'
+
+    def get_success_url(self):
+        return reverse('leer')
+
+class EgresadosRegistro(SuccessMessageMixin, CreateView):
+    model = Egresados
+    form = Egresados
+    fields = "__all__"
+    success_message = 'Egreasdo registrado correctamente'
 
     def get_success_url(self):
         return reverse('leer')
