@@ -1,0 +1,518 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,700;0,800;1,100;1,200&display=swap');
+
+*{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Montserrat';
+}
+
+header{
+    background-image: url('/images/pexels-davis-sanchez-2495232.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+   transition: 0.3s;
+   
+}
+
+.menu{
+    display: flex;
+    text-decoration: none;
+    justify-content: space-between;
+    flex: 1;
+    z-index: 1;
+    transition: 0.5s;
+
+}
+
+.navbar{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+}
+
+.navbar ul{
+    list-style: none;
+    display: inline-flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.menu ul a:hover{
+    box-shadow: 0 -2px 0px black inset;;
+}
+
+.navbar a{
+    text-decoration: none;
+    display: block;
+    justify-content: space-between;
+    text-align: center;
+    color: #000;
+    transition: 0.3s;
+
+}
+
+
+
+.logo{
+    flex: 1;
+    text-align: end;
+  
+}
+
+.footer{
+    display: flex;
+    flex: 1;
+    margin: 1rem 1rem 1rem 10rem;
+    padding: 30% 0 0 0 ;
+    flex-direction: column-reverse;
+}
+.container{
+    flex: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 9rem;
+    color: #fff;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 78px;
+
+}
+
+.button-navbar{
+    width: 11rem;
+    height: 3rem;
+    text-align: center;
+    margin: 0 1rem 0 0;
+    padding: 1rem 0rem 0rem 2.3rem;
+    font-family: 'Montserrat';
+    text-align: center;
+    font-weight: 300;
+    font-size: 2.3rem;
+    color: #000;
+}
+
+.current {
+    background: #A08080;
+    width: 10rem;
+    height: 3.3rem;
+}
+
+
+.current a{
+    color: #fff;
+}
+
+
+.logo img{
+    width: 10rem;
+    height: 10rem;
+    margin: 0 10rem 0 0;
+}
+
+
+.testimonials{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(116.27deg, #DED0D0 2.66%, rgba(204, 204, 204, 0.44) 98.15%);
+    text-align: center;
+}
+
+.testimonials .title{
+    background: linear-gradient(180deg, #928282 0%, rgba(15, 4, 4, 0.29) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 138.4%;
+margin: 0 0 5rem 0;
+}
+
+.cards{
+display: flex;
+margin: auto;
+justify-content: center;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 40.8rem;
+    height: 62.1rem;
+    background: linear-gradient(157.46deg, rgba(255, 255, 255, 0.4) 4.45%, rgba(255, 255, 255, 0.1) 98.71%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+backdrop-filter: blur(34px);
+/* Note: backdrop-filter has min
+imal browser support */
+
+border-radius: 30px;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 28px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.075em;
+margin: 0 3rem 0 3rem;
+color: #0C0202;
+backdrop-filter: blur(40px);
+}
+
+
+.img-container-1 {
+    width: 21.7rem;
+    height: 22rem;
+   margin: 4rem 0 5rem 0;
+   border-radius: 520px;
+   background: url('/images/pexels-hai-nguyen-1699419.jpg');
+   background-size: cover;
+   background-position: center;
+}
+
+.img-container-2 {
+    width: 21.7rem;
+    height: 22rem;
+   margin: 4rem 0 5rem 0;
+   border-radius: 520px;
+   background: url('/images/pexels-martin-kirigua-2259997.jpg');
+   background-size: cover;
+   background-position: center;
+}
+
+.img-container-3 {
+    width: 21.7rem;
+    height: 22rem;
+   margin: 4rem 0 5rem 0;
+   border-radius: 520px;
+   background: url('/images/pexels-joshua-mcknight-1139249.jpg');
+   background-size: cover;
+   background-position: center;
+}
+
+
+.comillas-start{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 64px;
+line-height: 138.4%;
+text-align: left;
+}
+
+.comillas-end{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 64px;
+line-height: 138.4%;
+text-align: right;
+}
+/*
+.img-container img{
+    width: 16rem;
+    height: 15rem;
+    flex: 1;
+   margin: 4rem 0 5rem 0;
+   border-radius: 520px;
+}*/
+
+.contact{
+    width: 100%;
+    height: 100vh;
+    background: url('/images/tumblr_orhwjj8iHj1vyvnqoo1_1280.png');
+    background-color: #EFE6E6;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+
+.formulario{
+    flex: 1;
+    text-align: center;
+}
+
+.datos{
+    text-align: center;
+   
+    flex: 1;
+}
+
+
+.contact .title{
+    margin: 5rem 0 5rem 0 ;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 138.4%;
+/* or 55px */
+
+align-items: center;
+text-align: center;
+letter-spacing: -0.075em;
+
+background: linear-gradient(180deg, #928282 0%, rgba(15, 4, 4, 0.29) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+
+}
+
+
+.form-container{
+
+    width: 70rem;
+    height: 80vh;
+    background: linear-gradient(157.46deg, rgba(255, 255, 255, 0.4) 4.45%, rgba(255, 255, 255, 0.1) 98.71%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+backdrop-filter: blur(20px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 30px;
+justify-content: center;
+
+margin: 0 0 0 13rem;
+
+}
+
+
+.form-container input, select {
+    width: 90%;
+    height: 5rem;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+  font-size: 20px;
+}
+
+
+.submit-button{
+    display: flex;
+    justify-content: end;
+    margin: 0 3rem 0 0;
+}
+
+.form-container input[type=submit]{
+    width: 15rem;
+   height: 5.5rem;
+    background: #C18A8A;
+border-radius: 13px;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+align-items: center;
+text-align: center;
+cursor:pointer;
+color: #FFF8F8;
+}
+
+
+.form-container .msg{
+    width: 90%;
+    height: 25rem;
+    font-size: 32px;
+}
+
+span{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 138.4%;
+    /* or 55px */
+    margin: 3rem 0 0 2rem;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.075em;
+    
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.42) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+   
+
+}
+
+
+.location-container{
+    width: 70rem;
+    height: 80vh;
+    background: linear-gradient(157.46deg, rgba(255, 255, 255, 0.4) 4.45%, rgba(255, 255, 255, 0.1) 98.71%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+    /* Note: backdrop-filter has minimal browser support */
+    
+    border-radius: 30px;
+    justify-content: center;
+    margin: 0 0 0 13rem;
+    font-family: 'Montserrat';
+
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 138.4%;
+/* or 55px */
+
+align-items: center;
+text-align: center;
+letter-spacing: -0.075em;
+}
+
+
+.location-container p{
+    margin-top: 5rem;
+    margin-bottom: 3.3rem;
+}
+
+
+.hamburguer {
+    position: relative;
+    margin: 15px 0 0 0 ;
+    width: 30px;
+    height: 4px;
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 2;
+    transition: 0.3s;
+}
+
+.hamburguer:before,
+.hamburguer:after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    right: 0;
+    background: #fff;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.hamburguer:before {
+    top: -10px;
+    width: 20px;
+}
+
+.hamburguer:after{
+    top: 10px;
+    width: 25px;
+}
+
+.toggle-menu {
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    z-index: 3;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.hamburguer,
+.toggle-menu {
+    
+}
+
+.navbar input:checked ~ .hamburguer{
+     background: transparent;
+}
+
+.navbar input:checked ~ .hamburguer:before
+{
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+}
+
+.navbar input:checked ~ .hamburguer:after {
+top: 0;
+transform: rotate(45deg);
+width: 30px;
+}
+
+
+@media screen and (max-width: 992px){
+    .hamburguer,
+    .toggle-menu {
+        display: block;
+    }
+    .navbar {
+        display: block;
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: 300px;
+        width: 20rem;
+        height: 100vw;
+        color: rgb(247, 203, 203); 
+        width: 300px;
+        height: 100px;
+        padding-top: 65px;
+    }
+}
+
+
+
+@media screen and (min-width: 200px) and (max-width: 400px) {
+   
+    .button-navbar{
+        width: 10rem;
+        height: 3rem;
+        text-align: center;
+        font-family: 'Montserrat';
+        text-align: center;
+        font-weight: 300;
+        font-size: 2.3rem;
+        color: #000;
+    }
+
+    .current {
+        background: #A08080;
+        width: 7rem;
+        height: 3.3rem;
+    }
+    
+
+
+    .footer .container{
+        width: 100vw;
+        font-size: 2rem;
+        margin: 48rem 0 0 0;
+        transform: translateX(-10rem);
+        line-height: 5rem;
+    }
+}
+
+@media screen and (min-width: 400px){
+
+header{
+    font-size: 0rem;
+}
+
+    .footer .container{
+        font-size: 1rem;
+    }
+}
