@@ -33,16 +33,31 @@
               <form method="post" action="elimiar/{{egresados.id}}">
                   {% csrf_token %}
                   <div class="btn-group">
+
                       <a href="detalle/{{egresados.id}}" title="Ver" type="button" class="btn btn-success">Ver </a>
                       <a href="editar/{{egresados.id}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                      
+                      
                       <button class="btn btn-danger" onclick="return eliminar();" type="submit">
                         Eliminar
                       </button>
+
+
                   </div>
               </form>
 
             </td>
         </tr>
+
+        <script type="text/javascript">
+            function eliminar() {
+              var x = confirm("Eliminar Producto ?");
+              if (x)
+                return true;
+              else
+                return false;
+            }
+          </script>
 
     {% endfor %}
     </tbody>

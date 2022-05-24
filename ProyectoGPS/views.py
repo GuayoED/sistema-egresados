@@ -17,24 +17,33 @@ from django.contrib import messages
  
 # Habilitamos los mensajes para class-based views 
 from django.contrib.messages.views import SuccessMessageMixin 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
  
 # Habilitamos los formularios en Django
 from django import forms
-
-from itertools import chain
 
 
 # Create your views here.
 
 class EgresadosListado(ListView):
-    queryset = Egresados.objects.all()
-    queryset1 = Profesional.objects.all()
-    egre = chain(queryset, queryset1)
-   
+    model = Egresados
 
+    
 
-class EgresadosDetalle(DetailView):
+class EgresadosDetalle( LoginRequiredMixin, DetailView):
     model = Egresados   
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profesional_list'] = Profesional.objects.all()
+        return context
+
+class EgreDetalle( DetailView):
+    model = Egresados   
+
+          
+
 
 
 class EgresadosCrear(SuccessMessageMixin, CreateView):

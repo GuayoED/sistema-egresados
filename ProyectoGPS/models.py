@@ -54,6 +54,9 @@ class Profesional(models.Model):
     empleo_actual=models.CharField(max_length=50)
     empleo_previ=models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.empleo_actual
+
 class Educacion(models.Model):
     carrera=models.ForeignKey('Egresados', on_delete=models.CASCADE)
     Univer=models.CharField(max_length=50)

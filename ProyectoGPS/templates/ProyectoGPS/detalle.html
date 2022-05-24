@@ -1,0 +1,23 @@
+{% extends "ProyectoGPS/base.html" %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+
+<h4>Detalles</h4>
+ 
+<p><span class="txt_negrita">Nombre:</span> <br> {{object.nombre}}</p>
+<p><span class="txt_negrita">Apellido Materno:</span> <br> {{ egresados.apellido_m }}</p>
+<p><span class="txt_negrita">Apellido Paterno:</span> <br> {{egresados.apellido_p}}</p>
+<p><span class="txt_negrita">Carrera:</span> <br> {{egresados.carrera}}</p>
+<p><span class="txt_negrita">Empleo Actual:</span> <br> {{object.empleo_actual}}</p>
+{% for egresado in profesional_list %}
+<p><span class="txt_negrita">Empleo Actual:</span> <br> {{ egresado }}</p>
+{% endfor %}
+<!-- Botón para volver a la vista principal (Home) -->
+<a href="../" type="submit" class="btn btn-primary">Volver</a>
+
+{% endblock %}

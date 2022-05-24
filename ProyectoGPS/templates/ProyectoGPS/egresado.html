@@ -38,10 +38,6 @@
                   {% csrf_token %}
                   <div class="btn-group">
                       <a href="detalle/{{egresados.id}}" title="Ver" type="button" class="btn btn-success">Ver </a>
-                      <a href="editar/{{egresados.id}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
-                      <button class="btn btn-danger" onclick="return eliminar();" type="submit">
-                        Eliminar
-                      </button>
                   </div>
               </form>
 

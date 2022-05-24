@@ -13,7 +13,12 @@ admin.site.register(Egresados, EgresadosAdmin)
 
 admin.site.register(Personales)
 
-admin.site.register(Profesional)
+class ProfesionalAdmin(admin.ModelAdmin):
+    list_display=( "id" , "id_em", "empleo_actual")
+    search_fields=("nombre",)
+
+
+admin.site.register(Profesional, ProfesionalAdmin)
 
 
 admin.site.register(Educacion)
