@@ -1,16 +1,19 @@
-from django.shortcuts import render, HttpResponse
+import email
+from turtle import st
+from django.conf import settings
+from django.shortcuts import render, HttpResponse, redirect
 
 
 #Vistas generiacas de django
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 #Importamos el modelo 
 
-from .models import Egresados, Educacion, Profesional
+from .models import Egresados, Educacion, Personales, Profesional
 
 # Nos sirve para redireccionar despues de una acción revertiendo patrones de expresiones regulares 
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
  
 # Habilitamos el uso de mensajes en Django
 from django.contrib import messages 
@@ -19,9 +22,11 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import authenticate, login
+from django.utils.decorators import method_decorator
  
 # Habilitamos los formularios en Django
-from django import forms
+from .forms import profileForm, createUserForm
 
 
 # Create your views here.
@@ -91,20 +96,63 @@ class EgresadosEliminar(SuccessMessageMixin, DeleteView):
         return reverse('leer') # Redireccionamos a la vista principal 'leer'
 
 
-def home(request):
-
-    return render(request, "ProyectoGPS/home.html")
-
-
-def egresados(request):
-
-    return render(request, "ProyectoGPS/egresados.html")
-
-
-def busqueda(request):
-
-    return render(request, "ProyectoGPS/busqueda.html")
-
 def contacto(request):
 
-    return render(request, "ProyectoGPS/contacto.html")
+    if request.method=="POST":
+
+        subject=request.POST["emaill"]
+
+        email_from=settings.EMAIL_HOST_USER
+
+
+
+        return render(request, "password_reset_done.html")
+
+
+def registerPage(request):
+    form = "Dummy String"
+    profile_form = "Dummy String"
+    if request.method == 'POST':
+        form = createUserForm(request.POST)
+        profile_form = profileForm(request.POST)
+
+        if form.is_valid() and profile_form.is_valid():
+            user = form.save()
+
+            #we don't save the profile_form here because we have to first get the value of profile_form, assign the user to the OneToOneField created in models before we now save the profile_form. 
+
+            profile = profile_form.save(commit=False)
+            profile.user = user
+
+            profile.save()
+
+            messages.success(request,  'Your account has been successfully created')
+
+            return redirect('login')
+
+    context = {'form': form, 'profile_form': profile_form}
+    return render(request, 'ProyectoGPS/register.html', context)
+
+
+@method_decorator(login_required, name='dispatch')
+class ProfileUpdate(TemplateView):
+    template_name = "ProyectoGPS/profile_form.html"
+
+
+@method_decorator(login_required, name='dispatch')
+class ProfileUpdatePersonales(UpdateView):
+    model = Personales
+
+    
+
+    def get_object(self):
+        profile, created = Personales.objects.get_or_create(nombre_id = self.request.user.id )
+        return profile
+    fields = ['nombre', 'apellido_m', 'apellido_p', 'edad', 'sexo', 'ciudad_radica', 'ciudad_origen']
+    success_url = reverse_lazy('profile')
+
+    template_name = "ProyectoGPS/profile_form_personales.html"
+
+
+
+

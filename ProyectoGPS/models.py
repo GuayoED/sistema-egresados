@@ -1,9 +1,11 @@
 from django.db import models
 from django.forms import IntegerField
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Egresados(models.Model):
+    
     carreras= (
         ('IBQ', 'Ingeniería Bioquimica'),
         ('IEN', 'Ingeniería Electrónica'),
@@ -19,12 +21,15 @@ class Egresados(models.Model):
         ('A', 'Administración'),    
     )
     
+    user= models.OneToOneField(User, on_delete=models.CASCADE, null=True,)
     nombre=models.CharField(max_length=50)
     apellido_m=models.CharField(max_length=25)
     apellido_p=models.CharField(max_length=25)
-    email=models.EmailField()
-    fech_naci=models.DateField()
+    email=models.EmailField('Email address', unique=True)
+    fech_naci=models.DateField(null=True)
     carrera=models.CharField(max_length=4, choices=carreras)
+
+
 
     def __str__(self):
         return self.nombre
