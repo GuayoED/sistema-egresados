@@ -137,4 +137,4 @@ EMAIL_HOST_USER = "edragona21@gmail.com"
 EMAIL_HOST_PASSWORD = "Gordito21"
 
 
-
+AUTH_USER_MODEL = 'ProyectoGPS.User'

@@ -146,9 +146,9 @@ class ProfileUpdatePersonales(UpdateView):
     
 
     def get_object(self):
-        profile, created = Personales.objects.get_or_create(nombre_id = self.request.user.id )
+        profile, created = Personales.objects.get_or_create(id_em_id = self.request.user.pk - 1)
         return profile
-    fields = ['nombre', 'apellido_m', 'apellido_p', 'edad', 'sexo', 'ciudad_radica', 'ciudad_origen']
+    fields = [ 'edad', 'sexo', 'ciudad_radica', 'ciudad_origen']
     success_url = reverse_lazy('profile')
 
     template_name = "ProyectoGPS/profile_form_personales.html"
