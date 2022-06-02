@@ -8,45 +8,57 @@
     <a href="/egresados/perfil" type="button" class="btn btn-primary"> Perfil</a>
 </div>
 
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th width="35%">Nombre</th>
-            <th>Apellido Materno</th>
-            <th>Apellido Paterno</th>
-            <th>Correo Electronico</th>
-            <th>Carrera</th>
-            
-           
-        </tr>
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Nombre</th>
+        <th>Carrera</th>
+        <th>Empleo</th>
+        <th>Edad</th>
+        <th>Mas</th>
+      </tr>
     </thead>
     <tbody>
-        
-    {% for egresados in object_list %}    
-     
-        <tr>
-            <td>{{ egresados.nombre }}</td>
-            <td>{{ egresados.apellido_m }}</td>
-            <td>{{ egresados.apellido_p }}</td>
-            <td>{{ egresados.email }}</td>
-            <td>{{ egresados.carrera }}</td>
-            <td>{{ profesional.empleo_actual }}</td>
-            
-             
-            <td>
-              <form method="post" action="elimiar/{{egresados.id}}">
-                  {% csrf_token %}
-                  <div class="btn-group">
-                      <a href="detalle/{{egresados.id}}" title="Ver" type="button" class="btn btn-success">Ver </a>
-                  </div>
-              </form>
+      <tr>
+        {% for egresados in egre %} 
+        <td>
+          <div class="d-flex align-items-center">
+               
+            <img
+                src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{ egresados.nombre }}</p>
+              <p class="text-muted mb-0">{{ egresados.email }}</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{ egresados.carrera }}</p>
+          {% for egresado in pro %}
+          <p class="text-muted mb-0">{{ egresado.empleo_actual }}</p>
+          {% endfor %}
+        </td>
+        <td>
+          <span class="badge badge-success rounded-pill d-inline">Active</span>
+        </td>
+        <td>Senior</td>
+        <td>
+            <form method="post" action="elimiar/{{egresados.id}}">
+                {% csrf_token %}
+                <div class="btn-group">
+                    <a href="detalle/{{egresados.id}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                </div>
+            </form>
 
-            </td>
-        </tr>
-        
-    {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+
     </tbody>
+  </table>
 
-</table>
-
-{% endblock %}
+  {% endblock %}

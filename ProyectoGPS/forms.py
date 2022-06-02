@@ -17,7 +17,7 @@ class createUserForm(UserCreationForm):
         # Note - include all *required* CustomUser fields here,
         # but don't need to include password1 and password2 as they are
         # already included since they are defined above.
-        fields = ("email",)
+        fields = ("email", "username")
 
     def clean_password2(self):
         # Check that the two password entries match

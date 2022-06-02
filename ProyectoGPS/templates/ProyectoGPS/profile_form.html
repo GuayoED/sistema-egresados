@@ -11,9 +11,16 @@
                 <form action="" method="post"> {% csrf_token %}
                     {{ form.as_p }}
                     <div class="text-center">
-                     <a href="/egresados/perfilPer" type="button" class="btn btn-primary"> Personales</a>
-                        
+                     <a href="/egresados/perfilPer" type="button" class="btn btn-primary"> Personales</a> 
                     </div>
+                    <p></p>
+                    <div class="text-center">
+                        <a href="/egresados/perfilPro" type="button" class="btn btn-primary"> Profesionales</a> 
+                       </div>
+                       <p></p>
+                    <div class="text-center">
+                        <a href="/egresados/perfilEdu" type="button" class="btn btn-primary"> Educacion</a> 
+                       </div>
                 </form>
             </div>
         </div>

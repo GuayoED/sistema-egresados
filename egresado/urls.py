@@ -18,19 +18,21 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-from ProyectoGPS.views import  EgresadosDetalle , EgresadosCrear, EgresadosActualizar, EgresadosEliminar, EgresadosRegistro, EgreDetalle, ProfileUpdatePersonales, registerPage, ProfileUpdate 
+from ProyectoGPS.views import  EgresadosDetalle , EgresadosCrear, EgresadosActualizar, EgresadosEliminar, EgresadosRegistro, ProfileUpdateEducacion, ProfileUpdatePersonales, ProfileUpdateProfesional, registerPage, ProfileUpdate, EgreDetalle 
 from ProyectoGPS import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('egresados/', views.EgresadosListado.as_view(template_name = 'ProyectoGPS/egresado.html'), name='leer'),
-    path('egresados/detalle/<int:pk>', EgresadosDetalle.as_view(template_name= 'ProyectoGPS/detalle.html'), name='detalles'),
+    path('egresados/', views.listar, name='leer'),
+    path('egresados/detalle/<int:pk>',views.detalle, name='detalles'),
     path('egresados/editar/<int:pk>', EgresadosActualizar.as_view(template_name= 'egresados/actualizar.html'), name='actualizar'),
     path('egresados/elminar/<int:pk>', EgresadosEliminar.as_view(), name='eliminar'),
-    path('', EgresadosRegistro.as_view(template_name= 'ProyectoGPS/registro.html'), name='registro'),
+    path('', EgresadosRegistro.as_view(template_name= 'ProyectoGPS/index.html'), name='registro'),
     path('egresados/perfil', ProfileUpdate.as_view(), name='profile'),
     path('egresados/perfilPer', ProfileUpdatePersonales.as_view(), name='profilePersonal'),
+    path('egresados/perfilPro', ProfileUpdateProfesional.as_view(), name='profileProfesional'),
+    path('egresados/perfilEdu', ProfileUpdateEducacion.as_view(), name='profileEducacion'),
 
     path('egresados/registrar', registerPage ),
 

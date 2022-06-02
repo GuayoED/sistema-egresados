@@ -1,0 +1,54 @@
+<form method="POST" action="">
+    {% csrf_token %}
+        <h3>Register Profile</h3>
+
+        <div class="form-field">
+            {{profile_form.nombre.label_tag}}
+            {{profile_form.nombre}}
+        </div>
+        <div class="form-field">
+            {{profile_form.apellido_m.label_tag}}
+            {{profile_form.apellido_m}}
+        </div>
+        <div class="form-field">
+            {{profile_form.apellido_p.label_tag}}
+            {{profile_form.apellido_p}}
+        </div>
+        <div class="form-field">
+            {{form.username.errors}}
+            {{form.username.label_tag}}
+            {{form.username  }}
+        </div>
+        <div class="form-field">
+            {{profile_form.email.label_tag}}
+            {{profile_form.email}}
+        </div>
+        <div class="form-field">
+            {{profile_form.address.label_tag}}
+            {{profile_form.address}}
+        </div>
+        <div class="form-field">
+            {{form.password1.errors}}
+            {{form.password1.label_tag}}
+            {{form.password1}}
+        </div>
+        <div class="form-field">
+            {{form.password2.errors}}
+            {{form.password2.label_tag}}
+            {{form.password2}}
+        </div>
+        <div class="form-field">
+            {{profile_form.fech_naci.label_tag}}
+            {{profile_form.fech_naci}}
+        </div>
+        <div class="form-field">
+            {{profile_form.carrera.label_tag}}
+            {{profile_form.carrera}}
+        </div>
+
+    
+    <input id="form-button" class="btn btn-success btn-block" type="submit" value="Create Profile">
+    
+        {{form.non_field_errors}}
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</form>

@@ -27,7 +27,7 @@ class Egresados(models.Model):
         ('CP', 'Contador Público'),
         ('A', 'Administración'),    
     )
-    user= models.OneToOneField(User, on_delete=models.CASCADE, null=True,)
+    user= models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     nombre=models.CharField(max_length=50)
     apellido_m=models.CharField(max_length=25)
     apellido_p=models.CharField(max_length=25)

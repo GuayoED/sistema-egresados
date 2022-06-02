@@ -1,6 +1,10 @@
+{% extends "ProyectoGPS/base.html" %}
+
+{% block title %}Login {% endblock %} 
 
 
 
+{% block content %}
 
 {% if form.errors %}
 <p>Tu usuario y contraseña no son correctos. Por favor intenta de nuevo.</p>
@@ -11,28 +15,68 @@
     <p>Tu cuentea no tiene acceso a este sitio. Para continuar,
     porfavor ingresa con una cuenta con acceso.</p>
     {% else %}
-    <p>Por favor ingresa para ver esta pantalla.</p>
+    <p>Inicia sesion para ingresar al sistio.</p>
     {% endif %}
 {% endif %}
 
 <form method="post" action="{% url 'login' %}">
-{% csrf_token %}
+    {% csrf_token %}
 
-<div>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</div>
-<div>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</div>
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      
+      
+    <label class="form-label" for="form2Example1">Email address</label>
+   <p class="form-label">{{ form.username }} </p>
+  
 
-<div>
-  <input type="submit" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</div>
-</form>
+    
+      
+             
+    </div>
+    
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      
+      <label class="form-label" for="form2Example2">Contraseña</label>
+      <p class="form-label">{{ form.password }} </p>
+    </div>
+  
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+        <!-- Checkbox -->
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+          <label class="form-check-label" for="form2Example31"> Recuerdame </label>
+        </div>
+      </div>
+  
+      <div class="col">
+        <!-- Simple link -->
+        <a href="{% url 'password_reset' %}">Olvidaste la contraseña?</a>
+      </div>
+    </div>
+  
+    <!-- Submit button -->
+   
+    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+   
+    </form>
 
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">¿Se te olvido la contraseña?</a></p>
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>No estas registrado? <a href="/egresados/registrar">Registrate</a></p>
+      
+    </div>
+  </form>
 
+
+  <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"
+></script>
+{% endblock content %}
