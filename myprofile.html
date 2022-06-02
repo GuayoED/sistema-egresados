@@ -7,13 +7,24 @@
     <script src="https://kit.fontawesome.com/8af0461f67.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/normalize.css">
     <link rel="stylesheet" href="/styles/myprofile.css">
+    <script type="text/javascript" src="/sidebar.js"></script>
     <title>Document</title>
 </head>
 <body>
     
-    <div class="left-bar"><img src="" alt=""></div>
-    <div class="main-content">
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+        <a href="">Mi perfil</a>
+        <a href="">Configuración</a>
         
+
+
+
+    </div>
+
+
+    <div id="main-content" class="main-content">
+    <button class="openbtn" onclick="openNav()">Open Sidebar</button>        
     <div class="header"><input type="text" name="search" placeholder="Buscar nombre de egresado "id=""></div>
 
     
